@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		E55976FA280618DE006D96E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55976F9280618DE006D96E5 /* AppDelegate.swift */; };
-		E55976FE280618DE006D96E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55976FD280618DE006D96E5 /* ViewController.swift */; };
+		E55976FE280618DE006D96E5 /* AnimalListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55976FD280618DE006D96E5 /* AnimalListController.swift */; };
 		E5597703280618DF006D96E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5597702280618DF006D96E5 /* Assets.xcassets */; };
 		E5597706280618DF006D96E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5597704280618DF006D96E5 /* LaunchScreen.storyboard */; };
+		E559770E28061C3D006D96E5 /* AnimalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559770D28061C3D006D96E5 /* AnimalListView.swift */; };
+		E55977102806239F006D96E5 /* AnimalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559770F2806239F006D96E5 /* AnimalListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E55976F6280618DE006D96E5 /* Animal Kingdom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal Kingdom.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55976F9280618DE006D96E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E55976FD280618DE006D96E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E55976FD280618DE006D96E5 /* AnimalListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListController.swift; sourceTree = "<group>"; };
 		E5597702280618DF006D96E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5597705280618DF006D96E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5597707280618DF006D96E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E559770D28061C3D006D96E5 /* AnimalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListView.swift; sourceTree = "<group>"; };
+		E559770F2806239F006D96E5 /* AnimalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				E55976F9280618DE006D96E5 /* AppDelegate.swift */,
-				E55976FD280618DE006D96E5 /* ViewController.swift */,
+				E559770F2806239F006D96E5 /* AnimalListCell.swift */,
+				E559770D28061C3D006D96E5 /* AnimalListView.swift */,
+				E55976FD280618DE006D96E5 /* AnimalListController.swift */,
 				E5597702280618DF006D96E5 /* Assets.xcassets */,
 				E5597704280618DF006D96E5 /* LaunchScreen.storyboard */,
 				E5597707280618DF006D96E5 /* Info.plist */,
@@ -131,8 +137,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E55976FE280618DE006D96E5 /* ViewController.swift in Sources */,
+				E55976FE280618DE006D96E5 /* AnimalListController.swift in Sources */,
+				E55977102806239F006D96E5 /* AnimalListCell.swift in Sources */,
 				E55976FA280618DE006D96E5 /* AppDelegate.swift in Sources */,
+				E559770E28061C3D006D96E5 /* AnimalListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
