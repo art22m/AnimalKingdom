@@ -22,7 +22,7 @@ class AnimalListCell: UITableViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
     }()
 
@@ -33,21 +33,26 @@ class AnimalListCell: UITableViewCell {
         return label
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupViews()
+        setupConstaints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupViews() {
-        addSubview(animalImage)
-        addSubview(nameLabel)
-        addSubview(titleLabel)
+        contentView.addSubview(animalImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(titleLabel)
     }
     
     func setupConstaints() {
         NSLayoutConstraint.activate([
             animalImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            animalImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10),
+            animalImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             animalImage.widthAnchor.constraint(equalToConstant: 100),
             animalImage.heightAnchor.constraint(equalToConstant: 100)
             ])
@@ -56,14 +61,20 @@ class AnimalListCell: UITableViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: animalImage.trailingAnchor, constant: 10),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            nameLabel.widthAnchor.constraint(equalToConstant: 30)
+            nameLabel.heightAnchor.constraint(equalToConstant: 30)
             ])
-        
+
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: animalImage.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
-            titleLabel.widthAnchor.constraint(equalToConstant: 30)
+            titleLabel.heightAnchor.constraint(equalToConstant: 30)
             ])
+    }
+    
+    func configure(with animalModel: AnimalModel) {
+        animalImage.image = animalModel.avatar ?? UIImage(named: "avatarPlaceholder")
+        nameLabel.text = animalModel.fullName
+        titleLabel.text = animalModel.title
     }
 }

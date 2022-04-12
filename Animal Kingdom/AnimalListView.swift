@@ -12,7 +12,9 @@ class AnimalListView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 120
+        table.register(AnimalListCell.self, forCellReuseIdentifier: AnimalListCell.identifier)
         return table
     }()
     

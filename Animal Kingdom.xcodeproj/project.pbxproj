@@ -13,6 +13,7 @@
 		E5597706280618DF006D96E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5597704280618DF006D96E5 /* LaunchScreen.storyboard */; };
 		E559770E28061C3D006D96E5 /* AnimalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559770D28061C3D006D96E5 /* AnimalListView.swift */; };
 		E55977102806239F006D96E5 /* AnimalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559770F2806239F006D96E5 /* AnimalListCell.swift */; };
+		E55977122806295E006D96E5 /* AnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55977112806295E006D96E5 /* AnimalModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E5597707280618DF006D96E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E559770D28061C3D006D96E5 /* AnimalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListView.swift; sourceTree = "<group>"; };
 		E559770F2806239F006D96E5 /* AnimalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListCell.swift; sourceTree = "<group>"; };
+		E55977112806295E006D96E5 /* AnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				E55976F9280618DE006D96E5 /* AppDelegate.swift */,
+				E55977112806295E006D96E5 /* AnimalModel.swift */,
 				E559770F2806239F006D96E5 /* AnimalListCell.swift */,
 				E559770D28061C3D006D96E5 /* AnimalListView.swift */,
 				E55976FD280618DE006D96E5 /* AnimalListController.swift */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E55976FE280618DE006D96E5 /* AnimalListController.swift in Sources */,
+				E55977122806295E006D96E5 /* AnimalModel.swift in Sources */,
 				E55977102806239F006D96E5 /* AnimalListCell.swift in Sources */,
 				E55976FA280618DE006D96E5 /* AppDelegate.swift in Sources */,
 				E559770E28061C3D006D96E5 /* AnimalListView.swift in Sources */,
