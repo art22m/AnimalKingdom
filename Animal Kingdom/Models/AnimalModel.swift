@@ -9,19 +9,32 @@ import Foundation
 import UIKit
 
 struct AnimalModel {
-    let avatar: UIImage?
+    var avatar: UIImage?
     let bio: String
     let firstName: String
-    let secondName: String
-    let id: Int
+    let lastName: String
+    var id: Int?
     let title: String
     
     var fullName: String {
-        return firstName + " " + secondName
+        return firstName + " " + lastName
     }
-//    init(avatar: UIImage, bio: Stirng, firstName: String, secondName: String, id: Int, title: String) {
-//        self.avatar = avatar
-//        self.bio = bio
-//        self.firstName = firstName
-//    }
+    
+    init(avatar: UIImage?, bio: String, firstName: String, lastName: String, id: Int?, title: String) {
+        self.avatar = avatar
+        self.bio = bio
+        self.firstName = firstName
+        self.lastName = lastName
+        self.id = id
+        self.title = title
+    }
+    
+    init(animalData: AnimalData) {
+        self.avatar = nil
+        self.bio = animalData.bio
+        self.firstName = animalData.firstName
+        self.lastName = animalData.lastName
+        self.id = Int(animalData.id)
+        self.title = animalData.title
+    }
 }

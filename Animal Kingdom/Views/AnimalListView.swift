@@ -7,7 +7,18 @@
 
 import UIKit
 
-class AnimalListView: UIView {    
+class AnimalListView: UIView {
+    // MARK: - Views
+    
+    let acitvityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
+        
+        return indicator
+    }()
+    
     let animalListTable: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -15,10 +26,12 @@ class AnimalListView: UIView {
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 120
         table.register(AnimalListCell.self, forCellReuseIdentifier: AnimalListCell.identifier)
+        
         return table
     }()
     
     // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -28,6 +41,8 @@ class AnimalListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Layout
+    
     private func setupLayout() {
         addSubview(animalListTable)
         NSLayoutConstraint.activate([
@@ -35,6 +50,12 @@ class AnimalListView: UIView {
             animalListTable.trailingAnchor.constraint(equalTo: trailingAnchor),
             animalListTable.topAnchor.constraint(equalTo: topAnchor),
             animalListTable.bottomAnchor.constraint(equalTo: bottomAnchor)
+            ])
+        
+        addSubview(acitvityIndicator)
+        NSLayoutConstraint.activate([
+            acitvityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            acitvityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
     }
 }

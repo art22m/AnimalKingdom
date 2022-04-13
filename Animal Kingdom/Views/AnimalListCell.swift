@@ -8,6 +8,8 @@
 import UIKit
 
 class AnimalListCell: UITableViewCell {
+    // MARK: - Views
+    
     static let identifier = "AnimalListCell"
     let infoButton: UIButton = {
         let button = UIButton(type: .contactAdd)
@@ -39,6 +41,8 @@ class AnimalListCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -48,6 +52,8 @@ class AnimalListCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Layout
     
     func setupViews() {
         contentView.addSubview(animalImage)
@@ -68,14 +74,14 @@ class AnimalListCell: UITableViewCell {
             nameLabel.leadingAnchor.constraint(equalTo: animalImage.trailingAnchor, constant: 10),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            nameLabel.heightAnchor.constraint(equalToConstant: 30)
+            nameLabel.heightAnchor.constraint(equalToConstant: 20)
             ])
 
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: animalImage.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
-            titleLabel.heightAnchor.constraint(equalToConstant: 30)
+            titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
+            titleLabel.heightAnchor.constraint(equalToConstant: 20)
             ])
         
         NSLayoutConstraint.activate([

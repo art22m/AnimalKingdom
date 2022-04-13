@@ -14,6 +14,8 @@
 		E559770E28061C3D006D96E5 /* AnimalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559770D28061C3D006D96E5 /* AnimalListView.swift */; };
 		E55977102806239F006D96E5 /* AnimalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E559770F2806239F006D96E5 /* AnimalListCell.swift */; };
 		E55977122806295E006D96E5 /* AnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55977112806295E006D96E5 /* AnimalModel.swift */; };
+		E5BFC0D62806E073000A6D91 /* AnimalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFC0D52806E073000A6D91 /* AnimalManager.swift */; };
+		E5BFC0D82806E18C000A6D91 /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFC0D72806E18C000A6D91 /* AnimalData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		E559770D28061C3D006D96E5 /* AnimalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListView.swift; sourceTree = "<group>"; };
 		E559770F2806239F006D96E5 /* AnimalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListCell.swift; sourceTree = "<group>"; };
 		E55977112806295E006D96E5 /* AnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalModel.swift; sourceTree = "<group>"; };
+		E5BFC0D52806E073000A6D91 /* AnimalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalManager.swift; sourceTree = "<group>"; };
+		E5BFC0D72806E18C000A6D91 /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +66,7 @@
 				E5BFC0D02806DFEB000A6D91 /* Views */,
 				E5BFC0D12806DFF4000A6D91 /* Controllers */,
 				E55976F9280618DE006D96E5 /* AppDelegate.swift */,
-				E5597702280618DF006D96E5 /* Assets.xcassets */,
+				E5597707280618DF006D96E5 /* Info.plist */,
 				E5BFC0D42806E01D000A6D91 /* Supporting files */,
 			);
 			path = "Animal Kingdom";
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				E55977112806295E006D96E5 /* AnimalModel.swift */,
+				E5BFC0D72806E18C000A6D91 /* AnimalData.swift */,
+				E5BFC0D52806E073000A6D91 /* AnimalManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,8 +102,8 @@
 		E5BFC0D42806E01D000A6D91 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				E5597702280618DF006D96E5 /* Assets.xcassets */,
 				E5597704280618DF006D96E5 /* LaunchScreen.storyboard */,
-				E5597707280618DF006D96E5 /* Info.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -177,6 +183,8 @@
 				E55977102806239F006D96E5 /* AnimalListCell.swift in Sources */,
 				E55976FA280618DE006D96E5 /* AppDelegate.swift in Sources */,
 				E559770E28061C3D006D96E5 /* AnimalListView.swift in Sources */,
+				E5BFC0D82806E18C000A6D91 /* AnimalData.swift in Sources */,
+				E5BFC0D62806E073000A6D91 /* AnimalManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
