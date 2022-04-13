@@ -9,6 +9,9 @@ import UIKit
 
 class AnimalListController: UIViewController {
     let animalListView = AnimalListView()
+    
+    var selectedIndex: IndexPath = IndexPath(row: -1, section: 0)
+    
     var animalManager = AnimalManager()
     var animals = [AnimalModel]()
     
@@ -45,11 +48,28 @@ extension AnimalListController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AnimalListCell.identifier, for: indexPath) as? AnimalListCell else { return UITableViewCell() }
         
         cell.configure(with: animals[indexPath.row])
+        cell.animate()
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath == selectedIndex) { return 360 }
+        
         return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if (selectedIndex == indexPath) {
+            selectedIndex = IndexPath(row: -1, section: 0)
+        } else {
+            selectedIndex = indexPath
+        }
+        
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.endUpdates()
     }
 }
 
@@ -79,6 +99,6 @@ extension AnimalListController: AnimalManagerDelegate {
     }
     
     func didFailWithError(error: Error) {
-        print(error)
+        print(error.localizedDescription)
     }
 }

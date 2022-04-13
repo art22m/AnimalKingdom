@@ -39,10 +39,9 @@ struct AnimalManager {
     
     func fetchAnimalAvatar(from url: String, for fullName: String) {
         guard let url = URL(string: url) else { return }
-        print(url)
+        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Avatar fetching error: \(error)")
+            if error != nil {
                 return
             }
             
@@ -66,7 +65,6 @@ struct AnimalManager {
             decodedData.forEach {
                 self.fetchAnimalAvatar(from: $0.avatar, for: $0.firstName + " " + $0.lastName)
             }
-//            self.fetchAnimalAvatar(from: decodedData[0].avatar, for: decodedData[0].firstName + " " + decodedData[0].lastName)
             
             return decodedData.map{AnimalModel(animalData: $0)}
         } catch {

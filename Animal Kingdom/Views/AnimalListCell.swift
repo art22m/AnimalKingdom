@@ -11,13 +11,16 @@ class AnimalListCell: UITableViewCell {
     // MARK: - Views
     
     static let identifier = "AnimalListCell"
-    let infoButton: UIButton = {
-        let button = UIButton(type: .contactAdd)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
     
+    let bioTextView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isScrollEnabled = true
+        textView.isUserInteractionEnabled = true
+        textView.font = .systemFont(ofSize: 16)
+        return textView
+    }()
     let animalImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +48,9 @@ class AnimalListCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        selectionStyle = .none
+        clipsToBounds = true
         setupViews()
         setupConstaints()
     }
@@ -55,14 +61,14 @@ class AnimalListCell: UITableViewCell {
     
     // MARK: - Layout
     
-    func setupViews() {
+    private func setupViews() {
         contentView.addSubview(animalImage)
         contentView.addSubview(nameLabel)
         contentView.addSubview(titleLabel)
-        contentView.addSubview(infoButton)
+        contentView.addSubview(bioTextView)
     }
     
-    func setupConstaints() {
+    private func setupConstaints() {
         NSLayoutConstraint.activate([
             animalImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             animalImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
@@ -85,14 +91,25 @@ class AnimalListCell: UITableViewCell {
             ])
         
         NSLayoutConstraint.activate([
-            infoButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            infoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+            bioTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            bioTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            bioTextView.topAnchor.constraint(equalTo: animalImage.bottomAnchor, constant: 5),
+            bioTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
             ])
     }
+    
+    // MARK: - Settings
     
     func configure(with animalModel: AnimalModel) {
         animalImage.image = animalModel.avatar ?? UIImage(named: "avatarPlaceholder")
         nameLabel.text = animalModel.fullName
         titleLabel.text = animalModel.title
+        bioTextView.text = animalModel.bio
+    }
+    
+    func animate() {
+        UIView.animate(withDuration: 0.5, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.layoutIfNeeded()
+        })
     }
 }
