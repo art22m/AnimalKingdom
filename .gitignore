@@ -1,0 +1,5 @@
+## art22m gitignore
+xcuserdata/
+
+.build/
+DerivedData/
