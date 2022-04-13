@@ -55,6 +55,30 @@ struct AnimalManager {
         task.resume()
     }
     
+    func uploadAnimal(animalData: AnimalData) {
+        guard let url = URL(string: "https://animalkingdom-art22m.herokuapp.com/add_animal") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do {
+            let requestBody = try JSONEncoder().encode(animalData)
+            request.httpBody = requestBody
+            request.addValue("application/json", forHTTPHeaderField: "content-type")
+        } catch {
+            self.delegate?.didFailWithError(error: error)
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                self.delegate?.didFailWithError(error: error)
+                return
+            }
+        }
+        
+        task.resume()
+    }
+    
     // MARK: - Parse
     
     private func parseData(jsonData: Data) -> [AnimalModel]? {

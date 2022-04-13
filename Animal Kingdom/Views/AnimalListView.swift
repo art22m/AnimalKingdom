@@ -9,6 +9,40 @@ import UIKit
 
 class AnimalListView: UIView {
     // MARK: - Views
+    
+    let addAnimalAlert: UIAlertController = {
+        let alert = UIAlertController(title: "Add animal", message: nil, preferredStyle: .alert)
+        var textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        alert.addTextField { field in
+            field.placeholder = "Type first name here..."
+            field.returnKeyType = .continue
+        }
+        
+        alert.addTextField { field in
+            field.placeholder = "Type last name here..."
+            field.returnKeyType = .continue
+        }
+
+        alert.addTextField { field in
+            field.placeholder = "Type title here..."
+            field.returnKeyType = .continue
+        }
+
+        alert.addTextField { field in
+            field.placeholder = "Type bio here..."
+            field.returnKeyType = .continue
+        }
+
+        alert.addTextField { field in
+            field.placeholder = "Type avatar url here..."
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        return alert
+    }()
+    
     let errorAlert: UIAlertController = {
         let alert = UIAlertController(title: "Error", message: nil, preferredStyle: .alert)
         

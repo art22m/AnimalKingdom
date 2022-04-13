@@ -8,14 +8,13 @@
 import UIKit
 
 class AnimalListCell: UITableViewCell {
-    // MARK: - Views
-    
     static let identifier = "AnimalListCell"
     
+    // MARK: - Views       
     let expandButton: UIImageView = {
         let button = UIImageView()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.image = UIImage(systemName: "plus")
+        button.image = UIImage(systemName: "rectangle.expand.vertical")
         button.tintColor = .black
         
         return button
@@ -30,6 +29,7 @@ class AnimalListCell: UITableViewCell {
         textView.font = .systemFont(ofSize: 16)
         return textView
     }()
+    
     let animalImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -71,11 +71,11 @@ class AnimalListCell: UITableViewCell {
     // MARK: - Layout
     
     private func setupViews() {
-        contentView.addSubview(animalImage)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(bioTextView)
-        contentView.addSubview(expandButton)
+        addSubview(animalImage)
+        addSubview(nameLabel)
+        addSubview(titleLabel)
+        addSubview(bioTextView)
+        addSubview(expandButton)
     }
     
     private func setupConstaints() {
@@ -134,7 +134,7 @@ class AnimalListCell: UITableViewCell {
 extension UIImageView {
     func rotateClockwise() {
         let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotation.toValue = NSNumber(value: CGFloat.pi / 2)
+        rotation.toValue = NSNumber(value: CGFloat.pi)
         rotation.duration = 0.2
         rotation.isCumulative = true
         rotation.repeatCount = 1

@@ -8,6 +8,7 @@
 import UIKit
 
 class AnimalListController: UIViewController {
+    // MARK: - Properties
     let animalListView = AnimalListView()
     
     var selectedIndex: IndexPath = IndexPath(row: -1, section: 0)
@@ -15,6 +16,7 @@ class AnimalListController: UIViewController {
     var animalManager = AnimalManager()
     var animals = [AnimalModel]()
     
+    // MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +26,8 @@ class AnimalListController: UIViewController {
             }
         }
         animalListView.errorAlert.addAction(retryAction)
-    
+        createAddButton() // creates add button for addAlert
+        
         animalListView.animalListTable.delegate = self
         animalListView.animalListTable.dataSource = self
         animalManager.delegate = self
@@ -33,8 +36,47 @@ class AnimalListController: UIViewController {
         
         view = animalListView
         
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAnimalTapped(sender:)))
         navigationItem.title = "Animal List"
+    }
+    
+    @objc
+    func addAnimalTapped(sender: UIButton) {
+        present(animalListView.addAnimalAlert, animated: true)
+    }
+    
+    func createAddButton() {
+        let addAnimalAction = UIAlertAction(title: "Add", style: .default) { _ in
+            guard let fields = self.animalListView.addAnimalAlert.textFields,
+                  fields.count == 5 else { return }
+            
+            let firstNameField = fields[0]
+            let lastNameField = fields[1]
+            let titleField = fields[2]
+            let bioField = fields[3]
+            let avatarURLField = fields[4]
+            
+            guard let firstName = firstNameField.text, !firstName.isEmpty,
+                let lastName = lastNameField.text, !lastName.isEmpty,
+                let title = titleField.text, !title.isEmpty,
+                let bio = bioField.text, !bio.isEmpty,
+                let avatarURL = avatarURLField.text, !avatarURL.isEmpty else {
+                return
+            }
+            
+            // Add new animal to the server and to the table
+            let id = Int.random(in: 0...10000)
+            self.animals.append(AnimalModel(avatar: nil, bio: bio, firstName: firstName, lastName: lastName, id: id, title: bio))
+            self.animalManager.uploadAnimal(animalData: AnimalData(avatar: avatarURL, bio: bio, firstName: firstName, lastName: lastName, id: String(id), title: title))
+            
+            // Update table
+            self.animalListView.animalListTable.beginUpdates()
+            self.animalListView.animalListTable.insertRows(at: [IndexPath(row: self.animals.count - 1, section: 0)], with: .none)
+            self.animalListView.animalListTable.endUpdates()
+        }
+        
+        animalListView.addAnimalAlert.addAction(addAnimalAction)
     }
 }
 
