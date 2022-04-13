@@ -71,11 +71,11 @@ class AnimalListCell: UITableViewCell {
     // MARK: - Layout
     
     private func setupViews() {
-        addSubview(animalImage)
-        addSubview(nameLabel)
-        addSubview(titleLabel)
-        addSubview(bioTextView)
-        addSubview(expandButton)
+        contentView.addSubview(animalImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(bioTextView)
+        contentView.addSubview(expandButton)
     }
     
     private func setupConstaints() {
