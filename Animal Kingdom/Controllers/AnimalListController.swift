@@ -54,6 +54,9 @@ extension AnimalListController: UITableViewDataSource {
         
         cell.configure(with: animals[indexPath.row])
         cell.animate()
+        if (selectedIndex == indexPath) {
+            cell.expandButton.rotateClockwise()
+        }
         return cell
     }
     

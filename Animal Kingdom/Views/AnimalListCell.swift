@@ -12,6 +12,15 @@ class AnimalListCell: UITableViewCell {
     
     static let identifier = "AnimalListCell"
     
+    let expandButton: UIImageView = {
+        let button = UIImageView()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.image = UIImage(systemName: "plus")
+        button.tintColor = .black
+        
+        return button
+    }()
+    
     let bioTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +75,7 @@ class AnimalListCell: UITableViewCell {
         contentView.addSubview(nameLabel)
         contentView.addSubview(titleLabel)
         contentView.addSubview(bioTextView)
+        contentView.addSubview(expandButton)
     }
     
     private func setupConstaints() {
@@ -91,8 +101,15 @@ class AnimalListCell: UITableViewCell {
             ])
         
         NSLayoutConstraint.activate([
+            expandButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            expandButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            expandButton.widthAnchor.constraint(equalToConstant: 25),
+            expandButton.heightAnchor.constraint(equalToConstant: 25)
+            ])
+        
+        NSLayoutConstraint.activate([
             bioTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            bioTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            bioTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             bioTextView.topAnchor.constraint(equalTo: animalImage.bottomAnchor, constant: 5),
             bioTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
             ])
@@ -111,5 +128,18 @@ class AnimalListCell: UITableViewCell {
         UIView.animate(withDuration: 0.5, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.layoutIfNeeded()
         })
+    }
+}
+
+extension UIImageView {
+    func rotateClockwise() {
+        let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.toValue = NSNumber(value: CGFloat.pi / 2)
+        rotation.duration = 0.2
+        rotation.isCumulative = true
+        rotation.repeatCount = 1
+        rotation.fillMode = .forwards
+        rotation.isRemovedOnCompletion = false
+        self.layer.add(rotation, forKey: "rotationAnimation")
     }
 }
