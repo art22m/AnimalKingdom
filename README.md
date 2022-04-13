@@ -2,7 +2,7 @@ The task is to create the "Animal Kingdom" app using the attached animal.json fi
 
 *Backend:*
 
-https://github.com/art22m/demo
+https://github.com/art22m/AnimalKingdomBackend
 
 I wrote a simple Java backend using the Spring framework. I have implemented simple GET and POST requests to get a list of animals and upload them. The database has not been used. Backed is hosted on heroku service. I hope that when you check this task, the service is working =)
 
