@@ -21,7 +21,7 @@ struct AnimalManager {
     
     func fetchAnimals() {
         guard let url = URL(string: "https://animalkingdom-art22m.herokuapp.com/get_all_animals") else { return }
-                
+        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 self.delegate?.didFailWithError(error: error)

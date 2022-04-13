@@ -58,10 +58,10 @@ class AnimalListController: UIViewController {
             let avatarURLField = fields[4]
             
             guard let firstName = firstNameField.text, !firstName.isEmpty,
-                let lastName = lastNameField.text, !lastName.isEmpty,
-                let title = titleField.text, !title.isEmpty,
-                let bio = bioField.text, !bio.isEmpty,
-                let avatarURL = avatarURLField.text, !avatarURL.isEmpty else {
+                  let lastName = lastNameField.text, !lastName.isEmpty,
+                  let title = titleField.text, !title.isEmpty,
+                  let bio = bioField.text, !bio.isEmpty,
+                  let avatarURL = avatarURLField.text, !avatarURL.isEmpty else {
                 return
             }
             

@@ -24,17 +24,17 @@ class AnimalListView: UIView {
             field.placeholder = "Type last name here..."
             field.returnKeyType = .continue
         }
-
+        
         alert.addTextField { field in
             field.placeholder = "Type title here..."
             field.returnKeyType = .continue
         }
-
+        
         alert.addTextField { field in
             field.placeholder = "Type bio here..."
             field.returnKeyType = .continue
         }
-
+        
         alert.addTextField { field in
             field.placeholder = "Type avatar url here..."
         }
@@ -89,12 +89,12 @@ class AnimalListView: UIView {
             animalListTable.trailingAnchor.constraint(equalTo: trailingAnchor),
             animalListTable.topAnchor.constraint(equalTo: topAnchor),
             animalListTable.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        ])
         
         addSubview(acitvityIndicator)
         NSLayoutConstraint.activate([
             acitvityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             acitvityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
+        ])
     }
 }

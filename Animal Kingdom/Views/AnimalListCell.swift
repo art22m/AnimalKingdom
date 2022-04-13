@@ -10,7 +10,7 @@ import UIKit
 class AnimalListCell: UITableViewCell {
     static let identifier = "AnimalListCell"
     
-    // MARK: - Views       
+    // MARK: - Views
     let expandButton: UIImageView = {
         let button = UIImageView()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class AnimalListCell: UITableViewCell {
         label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
     }()
-
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,35 +84,35 @@ class AnimalListCell: UITableViewCell {
             animalImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             animalImage.widthAnchor.constraint(equalToConstant: 100),
             animalImage.heightAnchor.constraint(equalToConstant: 100)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: animalImage.trailingAnchor, constant: 10),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             nameLabel.heightAnchor.constraint(equalToConstant: 20)
-            ])
-
+        ])
+        
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: animalImage.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             titleLabel.heightAnchor.constraint(equalToConstant: 20)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             expandButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             expandButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             expandButton.widthAnchor.constraint(equalToConstant: 25),
             expandButton.heightAnchor.constraint(equalToConstant: 25)
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             bioTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             bioTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             bioTextView.topAnchor.constraint(equalTo: animalImage.bottomAnchor, constant: 5),
             bioTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
-            ])
+        ])
     }
     
     // MARK: - Settings
