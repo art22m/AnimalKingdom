@@ -17,6 +17,13 @@ class AnimalListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let retryAction = UIAlertAction(title: "Retry", style: .cancel) { UIAlertAction in
+            if self.animals.isEmpty {
+                self.animalManager.fetchAnimals()
+            }
+        }
+        animalListView.errorAlert.addAction(retryAction)
     
         animalListView.animalListTable.delegate = self
         animalListView.animalListTable.dataSource = self
@@ -33,9 +40,7 @@ class AnimalListController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension AnimalListController: UITableViewDelegate {
-    
-}
+extension AnimalListController: UITableViewDelegate { }
 
 // MARK: - UITableViewDataSource
 
@@ -53,9 +58,7 @@ extension AnimalListController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath == selectedIndex) { return 360 }
-        
-        return 120
+        return indexPath == selectedIndex ? 360 : 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -99,6 +102,11 @@ extension AnimalListController: AnimalManagerDelegate {
     }
     
     func didFailWithError(error: Error) {
-        print(error.localizedDescription)
+        DispatchQueue.main.async {
+            if (self.presentedViewController == nil) {
+                self.animalListView.errorAlert.message = error.localizedDescription
+                self.present(self.animalListView.errorAlert, animated: true, completion: nil)
+            }
+        }
     }
 }

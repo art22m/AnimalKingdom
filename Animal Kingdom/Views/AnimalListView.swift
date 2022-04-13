@@ -9,6 +9,11 @@ import UIKit
 
 class AnimalListView: UIView {
     // MARK: - Views
+    let errorAlert: UIAlertController = {
+        let alert = UIAlertController(title: "Error", message: nil, preferredStyle: .alert)
+        
+        return alert
+    }()
     
     let acitvityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
