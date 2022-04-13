@@ -58,16 +58,48 @@
 		E55976F8280618DE006D96E5 /* Animal Kingdom */ = {
 			isa = PBXGroup;
 			children = (
+				E5BFC0D32806E00A000A6D91 /* Models */,
+				E5BFC0D02806DFEB000A6D91 /* Views */,
+				E5BFC0D12806DFF4000A6D91 /* Controllers */,
 				E55976F9280618DE006D96E5 /* AppDelegate.swift */,
-				E55977112806295E006D96E5 /* AnimalModel.swift */,
+				E5597702280618DF006D96E5 /* Assets.xcassets */,
+				E5BFC0D42806E01D000A6D91 /* Supporting files */,
+			);
+			path = "Animal Kingdom";
+			sourceTree = "<group>";
+		};
+		E5BFC0D02806DFEB000A6D91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				E559770F2806239F006D96E5 /* AnimalListCell.swift */,
 				E559770D28061C3D006D96E5 /* AnimalListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5BFC0D12806DFF4000A6D91 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				E55976FD280618DE006D96E5 /* AnimalListController.swift */,
-				E5597702280618DF006D96E5 /* Assets.xcassets */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E5BFC0D32806E00A000A6D91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E55977112806295E006D96E5 /* AnimalModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5BFC0D42806E01D000A6D91 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
 				E5597704280618DF006D96E5 /* LaunchScreen.storyboard */,
 				E5597707280618DF006D96E5 /* Info.plist */,
 			);
-			path = "Animal Kingdom";
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

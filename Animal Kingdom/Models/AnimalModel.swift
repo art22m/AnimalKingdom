@@ -17,7 +17,7 @@ struct AnimalModel {
     let title: String
     
     var fullName: String {
-        return firstName + secondName
+        return firstName + " " + secondName
     }
 //    init(avatar: UIImage, bio: Stirng, firstName: String, secondName: String, id: Int, title: String) {
 //        self.avatar = avatar

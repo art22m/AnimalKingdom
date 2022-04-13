@@ -9,13 +9,19 @@ import UIKit
 
 class AnimalListCell: UITableViewCell {
     static let identifier = "AnimalListCell"
+    let infoButton: UIButton = {
+        let button = UIButton(type: .contactAdd)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
     
     let animalImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
-        
+        image.layer.cornerRadius = 20
         return image
     }()
     
@@ -47,6 +53,7 @@ class AnimalListCell: UITableViewCell {
         contentView.addSubview(animalImage)
         contentView.addSubview(nameLabel)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(infoButton)
     }
     
     func setupConstaints() {
@@ -69,6 +76,11 @@ class AnimalListCell: UITableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             titleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
             titleLabel.heightAnchor.constraint(equalToConstant: 30)
+            ])
+        
+        NSLayoutConstraint.activate([
+            infoButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            infoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
             ])
     }
     
